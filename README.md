@@ -5,7 +5,15 @@ This project is a Django application for managing a book store. It includes two 
 ## Features
 
 - **Model Registration**: Models are registered to be visible and manageable through the Django admin interface.
-- **Custom Admin Display**: Customize the display of models in the admin interface, including list display, search fields, and filtering options.
+- **Existing Models**: Author and Book.
+- **New Models**: Student and Course.
+  - **Student**: Represents a student with a name, email, date of birth, and enrolled courses.
+  - **Course**: Represents a course with a name and description.
+
+## Model Relationships
+
+- **Author** and **Book**: The `Book` model has a ForeignKey relationship with the `Author` model.
+- **Student** and **Course**: The `Student` model has a ManyToManyField relationship with the `Course` model.
 
 ## Technologies Used
 
