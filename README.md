@@ -10,6 +10,10 @@ This project is a Django application for managing a book store. It includes two 
   - **Student**: Represents a student with a name, email, date of birth, and enrolled courses.
   - **Course**: Represents a course with a name and description.
 
+- **Template Implementation**:
+  - **Dynamic Templates**: Added a `book_detail.html` template to display detailed information about books.
+  - **Template Tags and Filters**: Utilized Django template tags and filters for dynamic content, including loops, conditionals, and data formatting.
+
 ## Model Relationships
 
 - **Author** and **Book**: The `Book` model has a ForeignKey relationship with the `Author` model.

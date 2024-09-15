@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ book.title }}</title>
+  </head>
+  <body>
+    <h1>{{ book.title }}</h1>
+    <p>Author: {{ book.author }}</p>
+    <p>Price: ${{ book.price }}</p>
+
+    {% if book.description %}
+    <p>Description: {{ book.description }}</p>
+    {% else %}
+    <p>No description available.</p>
+    {% endif %}
+
+    <p>Published: {{ book.published_date|date:"F d, Y" }}</p>
+  </body>
+</html>
