@@ -14,6 +14,17 @@ This project is a Django application for managing a book store. It includes two 
   - **Dynamic Templates**: Added a `book_detail.html` template to display detailed information about books.
   - **Template Tags and Filters**: Utilized Django template tags and filters for dynamic content, including loops, conditionals, and data formatting.
 
+- **Form and Validation**:
+  - **Create a Simple Form**:
+    - Added a form to collect user data, specifically a user’s name and email.
+    - Defined fields for the form: `name` and `email`.
+  - **Add Basic Validation**:
+    - Ensured the `name` field is required.
+    - Validated that the `email` field contains a valid email address.
+  - **Integrate the Form into a View**:
+    - Displayed the form in a view and rendered it in a template.
+    - Handled form submission and showed success or error messages based on the form's validity.
+
 ## Model Relationships
 
 - **Author** and **Book**: The `Book` model has a ForeignKey relationship with the `Author` model.
