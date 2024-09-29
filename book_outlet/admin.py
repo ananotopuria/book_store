@@ -1,5 +1,8 @@
 from django.contrib import admin
 from .models import Author, Book, Course, Student
+from rest_framework.authtoken.models import Token
+
+admin.site.register(Token)
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):

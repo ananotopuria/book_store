@@ -36,6 +36,11 @@ This project is a Django application for managing a book store. It includes two 
 - **Django** (v4.1)
 - **SQLite3** (default Django database)
 
+## Set Up Django REST Framework
+
+1. **Install Django REST Framework**:
+   Make sure you have `djangorestframework` installed in your virtual environment:
+
 ## Installation
 
 1. **Clone the Repository**
