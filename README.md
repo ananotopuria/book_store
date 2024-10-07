@@ -37,6 +37,9 @@ The Book Store application provides functionalities to manage books and their au
 - **Django REST Framework Integration**:
   - Set up RESTful API endpoints for the `Book` and `Author` models, allowing for CRUD operations (Create, Read, Update, Delete) via HTTP requests.
   - Applied permissions to restrict certain actions to authenticated users while keeping GET requests accessible to all users.
+  - **Pagination**: Implemented pagination in the Book API using DRF's built-in pagination classes, limiting results to 10 books per page.
+  - **Filtering**: Integrated Django-filter to allow filtering books by author and published date through query parameters.
+  - **Custom Permissions**: Created a custom permission class to allow only the author of a book or an admin to update or delete it, ensuring appropriate access control in the BookViewSet.
 
 ## Model Relationships
 
