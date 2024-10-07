@@ -1,12 +1,14 @@
-from django.urls import path
-from .views import homepage, book_detail, user_form_view, BookList, BookCreate, get_book_detail
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import BookViewSet, AuthorViewSet, homepage, book_detail, user_form_view
+
+router = DefaultRouter()
+router.register(r'books', BookViewSet)  
+router.register(r'authors', AuthorViewSet) 
 
 urlpatterns = [
-    path('', homepage, name='homepage'),
-    path('book/<int:book_id>/', book_detail, name='book-detail'),
-    path('user-form/', user_form_view, name='user-form'),
-    
-    path('api/books/', BookList.as_view(), name='book-list-api'),
-    path('api/books/create/', BookCreate.as_view(), name='book-create-api'),
-    path('api/books/<int:pk>/', get_book_detail, name='book-detail-api'),
+    path('api/', include(router.urls)),  
+    path('', homepage, name='homepage'), 
+    path('books/<int:book_id>/', book_detail, name='book_detail'), 
+    path('user-form/', user_form_view, name='user_form'), 
 ]
