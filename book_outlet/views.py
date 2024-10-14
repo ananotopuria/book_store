@@ -67,6 +67,11 @@ from .forms import UserForm
 from .serializers import BookSerializer, AuthorSerializer
 from rest_framework.pagination import PageNumberPagination
 from .permissions import IsAuthorOrAdmin 
+from django.shortcuts import render
+from .forms import UserForm
+from .tasks import send_welcome_email
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 
 
 class CustomPagination(PageNumberPagination):
@@ -117,4 +122,30 @@ def user_form_view(request):
         form = UserForm()
 
     return render(request, 'book_outlet/user_form.html', {'form': form})
+
+# def user_form_view(request):
+#     if request.method == 'POST':
+#         form = UserForm(request.POST)
+#         if form.is_valid():
+#             name = form.cleaned_data['name']
+#             email = form.cleaned_data['email']
+#             send_welcome_email.delay(email) 
+#             return render(request, 'book_outlet/success.html', {'name': name})
+#     else:
+#         form = UserForm()
+
+#     return render(request, 'book_outlet/user_form.html', {'form': form})
+
+def user_form_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        email = request.POST['email']
+   
+        user = User.objects.create_user(username=username, email=email)
+        
+        
+        send_welcome_email.delay(email)  
+        return redirect('homepage')  
+
+    return render(request, 'user_form.html')
 
